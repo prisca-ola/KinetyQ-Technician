@@ -46,51 +46,55 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-navy lg:grid lg:grid-cols-2">
-      {/* Left brand panel - navy gradient + noise, full-bleed */}
-      <div
-        style={PANEL_BG}
-        className="relative flex min-h-[260px] flex-col justify-between overflow-hidden p-8 text-white lg:min-h-screen lg:p-12 xl:p-16"
-      >
-        <div className="pointer-events-none absolute inset-0 noise-overlay opacity-[0.15] mix-blend-overlay" />
+    // Main frame fills the screen edge to edge.
+    <div className="flex min-h-screen w-full flex-col bg-surface lg:flex-row">
+      {/* Left column - the navy panel is a slightly rounded card, inset a
+          little so its rounded corners read against the white main frame. */}
+      <div className="p-3 sm:p-4 lg:w-1/2 lg:p-4">
+        <div
+          style={PANEL_BG}
+          className="relative flex h-full min-h-[240px] flex-col justify-between overflow-hidden rounded-2xl p-8 text-white lg:p-12 xl:p-14"
+        >
+          <div className="pointer-events-none absolute inset-0 noise-overlay opacity-[0.15] mix-blend-overlay" />
 
-        <div className="relative flex items-center justify-between">
-          <Logo className="h-6 text-white lg:h-7" />
-          <span className="hidden text-[12px] font-medium text-white/45 sm:block">
-            Technician workspace
-          </span>
-        </div>
-
-        <div className="relative">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/10 py-1 pl-1.5 pr-3.5 backdrop-blur">
-            <div className="flex -space-x-2">
-              {AVATARS.map((c, i) => (
-                <span
-                  key={i}
-                  className="h-6 w-6 rounded-full border-2 border-navy"
-                  style={{ background: c }}
-                />
-              ))}
-            </div>
-            <span className="text-[12px] font-medium text-white/80">
-              Trusted by KinetyQ technicians
+          <div className="relative flex items-center justify-between">
+            <Logo className="h-6 text-white lg:h-7" />
+            <span className="hidden text-[12px] font-medium text-white/45 sm:block">
+              Technician workspace
             </span>
           </div>
 
-          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white lg:text-5xl xl:text-[56px]">
-            Every job,
-            <br />
-            under control.
-          </h1>
-          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
-            Find work, review diagnostics, quote, and complete service, all from
-            one technician workspace.
-          </p>
+          <div className="relative">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/10 py-1 pl-1.5 pr-3.5 backdrop-blur">
+              <div className="flex -space-x-2">
+                {AVATARS.map((c, i) => (
+                  <span
+                    key={i}
+                    className="h-6 w-6 rounded-full border-2 border-navy"
+                    style={{ background: c }}
+                  />
+                ))}
+              </div>
+              <span className="text-[12px] font-medium text-white/80">
+                Trusted by KinetyQ technicians
+              </span>
+            </div>
+
+            <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white lg:text-5xl xl:text-[56px]">
+              Every job,
+              <br />
+              under control.
+            </h1>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
+              Find work, review diagnostics, quote, and complete service, all
+              from one technician workspace.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Right form panel */}
-      <div className="flex items-center justify-center bg-surface px-6 py-12 sm:px-10 lg:min-h-screen">
+      {/* Right column - form on the white main frame */}
+      <div className="flex flex-1 items-center justify-center px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
         <div className="w-full max-w-md">
           <Logo className="h-6 text-navy" />
 
