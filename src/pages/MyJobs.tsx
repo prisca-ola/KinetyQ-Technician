@@ -65,7 +65,7 @@ export default function MyJobs() {
             onClick={() => setTab(key)}
             className={cn(
               "flex-1 rounded-lg px-3 py-2 text-[13px] font-semibold transition-colors",
-              tab === key ? "bg-ink text-white" : "text-neutral-500 hover:text-ink"
+              tab === key ? "bg-navy text-white" : "text-neutral-500 hover:text-ink"
             )}
           >
             {label}

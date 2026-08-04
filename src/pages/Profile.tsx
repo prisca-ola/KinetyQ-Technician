@@ -24,7 +24,7 @@ export default function Profile() {
 
       {/* Identity header */}
       <Card className="relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-24 bg-ink" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-navy" />
         <Swoosh variant="duo" className="absolute right-4 top-3 w-24 opacity-90" />
         <CardBody className="relative">
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end">

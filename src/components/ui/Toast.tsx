@@ -37,7 +37,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         {items.map((t) => (
           <div
             key={t.id}
-            className="pointer-events-auto flex max-w-sm items-center gap-2.5 rounded-xl bg-ink px-3.5 py-2.5 text-sm text-white shadow-pop animate-fade-in"
+            className="pointer-events-auto flex max-w-sm items-center gap-2.5 rounded-xl bg-navy px-3.5 py-2.5 text-sm text-white shadow-pop animate-fade-in"
           >
             {t.tone === "success" ? (
               <CheckCircle2 className="h-[18px] w-[18px] text-success" />

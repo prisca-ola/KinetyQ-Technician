@@ -123,7 +123,7 @@ function UserMenu() {
 function Sidebar() {
   const { user } = useAuth();
   return (
-    <aside className="hidden lg:flex lg:flex-col w-64 shrink-0 bg-ink text-white">
+    <aside className="hidden lg:flex lg:flex-col w-64 shrink-0 bg-navy text-white">
       <div className="flex h-[60px] items-center px-6">
         <Logo className="h-6 text-white" />
       </div>

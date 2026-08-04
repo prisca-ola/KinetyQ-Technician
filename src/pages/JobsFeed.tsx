@@ -123,7 +123,7 @@ export default function JobsFeed() {
                   className={cn(
                     "rounded-lg px-3 py-1.5 text-[13px] font-semibold transition-colors",
                     sort === s
-                      ? "bg-ink text-white"
+                      ? "bg-navy text-white"
                       : "text-neutral-500 hover:text-ink"
                   )}
                 >

@@ -15,8 +15,18 @@ export default {
           "blue-100": "#D9EEF8",
           "blue-50": "#EDF7FC",
         },
+        // Brand dark - deep navy. Pairs with the brand yellow. Used for the
+        // sign-in panel, the dashboard side nav, and dark surfaces.
+        navy: {
+          DEFAULT: "#001824",
+          950: "#000f17",
+          900: "#001824",
+          800: "#04263a",
+          700: "#083a56",
+          600: "#0b4d70",
+        },
         ink: {
-          DEFAULT: "#2D2D2D", // charcoal
+          DEFAULT: "#2D2D2D", // charcoal - body text
           900: "#1C1C1C",
           800: "#2D2D2D",
           700: "#3D3D3D",
