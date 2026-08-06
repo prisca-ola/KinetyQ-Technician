@@ -35,7 +35,7 @@ function initialsOf(name: string): string {
 }
 
 function AvailabilityControl() {
-  const { online, setOnline, user } = useAuth();
+  const { online, setOnline, coverage } = useAuth();
   return (
     <div className="flex items-center gap-3">
       <div className="hidden sm:flex flex-col items-end leading-tight">
@@ -49,7 +49,7 @@ function AvailabilityControl() {
         </span>
         <span className="flex items-center gap-1 text-[11px] text-neutral-500">
           <MapPin className="h-3 w-3" />
-          {user?.city ?? "Lagos"} · {user?.coverageRadiusKm ?? 10}km
+          {coverage.city} · {coverage.radiusKm}km
         </span>
       </div>
       <Toggle checked={online} onChange={setOnline} label="Toggle availability" />

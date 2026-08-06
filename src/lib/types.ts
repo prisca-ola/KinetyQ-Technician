@@ -39,12 +39,14 @@ export interface Session {
 
 export type JobSeverity = "critical" | "high" | "medium" | "low";
 export type JobType = "roadside" | "workshop" | "mobile";
+export type VehicleType = "Car" | "Pickup" | "SUV" | "Truck" | "Van";
 
 export interface JobVehicle {
   make: string;
   model: string;
   year: number;
   plate: string;
+  type: VehicleType;
 }
 
 export interface AvailableJob {
@@ -55,9 +57,10 @@ export interface AvailableJob {
   vehicle: JobVehicle;
   obd?: string;
   location: string;
+  city: string;
   distanceKm: number;
   jobType: JobType;
   skill: string;
-  createdAgo: string;
+  createdTs: number;
   fleetNote?: string;
 }

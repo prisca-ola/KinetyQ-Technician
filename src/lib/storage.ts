@@ -32,4 +32,6 @@ export function removeKey(key: string): void {
 export const STORAGE_KEYS = {
   session: "session.v1",
   online: "availability.online.v1",
+  coverage: "availability.coverage.v1",
+  feed: "feed.state.v1",
 } as const;
