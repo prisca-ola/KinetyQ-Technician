@@ -1,5 +1,5 @@
 import { useState, type CSSProperties, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { Logo } from "@/components/brand/Logo";
@@ -174,6 +174,13 @@ export default function Login() {
               </button>
             </div>
           </div>
+
+          <p className="mt-6 text-[13px] text-neutral-500">
+            New to KinetyQ?{" "}
+            <Link to="/join" className="font-semibold text-brand-blue">
+              Create an account
+            </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -6,6 +6,11 @@ import Login from "@/pages/Login";
 import JobsFeed from "@/pages/JobsFeed";
 import MyJobs from "@/pages/MyJobs";
 import Profile from "@/pages/Profile";
+import Join from "@/pages/onboarding/Join";
+import IndividualOnboarding from "@/pages/onboarding/IndividualOnboarding";
+import BusinessOnboarding from "@/pages/onboarding/BusinessOnboarding";
+import OrganizationOnboarding from "@/pages/onboarding/OrganizationOnboarding";
+import VerificationPending from "@/pages/onboarding/VerificationPending";
 
 function LoginRoute() {
   const { isAuthenticated, ready } = useAuth();
@@ -18,6 +23,13 @@ export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<LoginRoute />} />
+
+      {/* Onboarding (public - a new technician is not signed in yet) */}
+      <Route path="/join" element={<Join />} />
+      <Route path="/onboarding/individual" element={<IndividualOnboarding />} />
+      <Route path="/onboarding/business" element={<BusinessOnboarding />} />
+      <Route path="/onboarding/organization" element={<OrganizationOnboarding />} />
+      <Route path="/verification-pending" element={<VerificationPending />} />
 
       <Route
         element={
