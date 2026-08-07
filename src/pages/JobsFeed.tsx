@@ -19,6 +19,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useToast } from "@/components/ui/Toast";
 import { useFeedState } from "@/hooks/useFeedState";
 import { AVAILABLE_JOBS } from "@/lib/mockData";
+import { addActiveFromJob } from "@/lib/activeJobs";
 import { SPECIALTIES } from "@/lib/onboarding";
 import { timeAgo } from "@/lib/format";
 import type {
@@ -434,6 +435,7 @@ export default function JobsFeed() {
               job={job}
               onView={() => navigate(`/jobs/${job.id}`)}
               onAccept={() => {
+                addActiveFromJob(job);
                 accept(job.id);
                 toast("Job accepted. Find it in My Jobs.", "success");
               }}

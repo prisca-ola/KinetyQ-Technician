@@ -35,4 +35,6 @@ export const STORAGE_KEYS = {
   coverage: "availability.coverage.v1",
   feed: "feed.state.v1",
   quotes: "quotes.v1",
+  active: "active.v1",
+  profile: "profile.v1",
 } as const;

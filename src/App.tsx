@@ -6,6 +6,7 @@ import Login from "@/pages/Login";
 import JobsFeed from "@/pages/JobsFeed";
 import JobDetail from "@/pages/JobDetail";
 import MyJobs from "@/pages/MyJobs";
+import ActiveJobDetail from "@/pages/ActiveJobDetail";
 import Profile from "@/pages/Profile";
 import Join from "@/pages/onboarding/Join";
 import IndividualOnboarding from "@/pages/onboarding/IndividualOnboarding";
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/jobs" element={<JobsFeed />} />
         <Route path="/jobs/:id" element={<JobDetail />} />
         <Route path="/my-jobs" element={<MyJobs />} />
+        <Route path="/active/:id" element={<ActiveJobDetail />} />
         <Route path="/profile" element={<Profile />} />
       </Route>
 
