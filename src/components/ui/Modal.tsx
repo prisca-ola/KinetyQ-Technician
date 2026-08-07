@@ -51,8 +51,8 @@ export function Modal({
           size === "lg" ? "sm:max-w-xl" : "sm:max-w-md"
         )}
       >
-        <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4">
-          <div>
+        <div className="flex items-start justify-between gap-4 border-b border-line px-6 pb-4 pt-6">
+          <div className="space-y-1">
             <h2 className="font-display text-lg font-bold text-ink">{title}</h2>
             {subtitle && <p className="text-[13px] text-neutral-500">{subtitle}</p>}
           </div>
@@ -61,15 +61,13 @@ export function Modal({
             aria-label="Close"
             className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-neutral-400 hover:bg-neutral-100 hover:text-ink"
           >
-            <X className="h-4.5 w-4.5" />
+            <X className="h-4 w-4" />
           </button>
         </div>
 
-        <div className="scroll-thin flex-1 overflow-y-auto px-5 py-4">{children}</div>
+        <div className="scroll-thin flex-1 overflow-y-auto px-6 py-6">{children}</div>
 
-        {footer && (
-          <div className="border-t border-line px-5 py-3.5">{footer}</div>
-        )}
+        {footer && <div className="border-t border-line px-6 py-4">{footer}</div>}
       </div>
     </div>
   );

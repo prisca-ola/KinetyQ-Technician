@@ -207,7 +207,7 @@ export function AppShell() {
     <div className="min-h-screen lg:grid lg:grid-cols-[16rem_1fr] bg-canvas">
       <Sidebar />
       <div className="flex min-h-screen flex-col">
-        <header className="sticky top-0 z-30 flex h-[60px] items-center justify-between gap-3 border-b border-line bg-surface/90 px-4 backdrop-blur sm:px-6">
+        <header className="sticky top-0 z-30 flex h-[60px] items-center justify-between gap-3 border-b border-line bg-surface/90 px-4 backdrop-blur sm:px-6 lg:px-8">
           <div className="lg:hidden">
             <Logo className="h-5 text-ink" />
           </div>
@@ -221,8 +221,8 @@ export function AppShell() {
           </div>
         </header>
 
-        <main className="flex-1 px-4 pb-24 pt-5 sm:px-6 lg:px-8 lg:pb-10">
-          <div className="mx-auto w-full max-w-5xl">
+        <main className="flex-1 px-4 pb-24 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pb-8">
+          <div className="w-full">
             <Outlet />
           </div>
         </main>

@@ -16,7 +16,7 @@ interface FieldProps {
 
 export function Field({ label, hint, error, children, htmlFor }: FieldProps) {
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-2">
       {label && (
         <label
           htmlFor={htmlFor}
