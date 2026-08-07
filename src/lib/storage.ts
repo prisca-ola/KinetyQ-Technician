@@ -34,4 +34,5 @@ export const STORAGE_KEYS = {
   online: "availability.online.v1",
   coverage: "availability.coverage.v1",
   feed: "feed.state.v1",
+  quotes: "quotes.v1",
 } as const;

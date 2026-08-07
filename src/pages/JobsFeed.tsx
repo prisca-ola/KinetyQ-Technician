@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   MapPin,
   PowerOff,
@@ -67,14 +68,15 @@ function activeFilterCount(f: Filters): number {
 
 function JobCard({
   job,
+  onView,
   onAccept,
   onDismiss,
 }: {
   job: AvailableJob;
+  onView: () => void;
   onAccept: () => void;
   onDismiss: () => void;
 }) {
-  const { toast } = useToast();
   return (
     <Card className="overflow-hidden transition-shadow hover:shadow-pop">
       <div className="flex items-start justify-between gap-3 p-4 sm:p-5">
@@ -120,11 +122,7 @@ function JobCard({
             <span className="hidden sm:inline">{timeAgo(job.createdTs)}</span>
           </span>
           <div className="flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => toast("Job detail opens in the next feature")}
-            >
+            <Button size="sm" variant="outline" onClick={onView}>
               View
             </Button>
             <Button size="sm" onClick={onAccept}>
@@ -164,6 +162,7 @@ export default function JobsFeed() {
   const { online, setOnline, coverage, setCoverage } = useAuth();
   const { state, accept, dismiss, reset } = useFeedState();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const [sort, setSort] = useState<Sort>("Nearest");
   const [filters, setFilters] = useState<Filters>(NO_FILTERS);
@@ -171,7 +170,7 @@ export default function JobsFeed() {
   const [refreshing, setRefreshing] = useState(false);
 
   const hiddenIds = useMemo(
-    () => new Set([...state.dismissed, ...state.accepted]),
+    () => new Set([...state.dismissed, ...state.accepted, ...state.quoted]),
     [state]
   );
 
@@ -433,6 +432,7 @@ export default function JobsFeed() {
             <JobCard
               key={job.id}
               job={job}
+              onView={() => navigate(`/jobs/${job.id}`)}
               onAccept={() => {
                 accept(job.id);
                 toast("Job accepted. Find it in My Jobs.", "success");

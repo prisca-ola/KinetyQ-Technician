@@ -49,6 +49,11 @@ export interface JobVehicle {
   type: VehicleType;
 }
 
+export interface JobAttachment {
+  type: "photo" | "video";
+  label: string;
+}
+
 export interface AvailableJob {
   id: string;
   title: string;
@@ -63,4 +68,5 @@ export interface AvailableJob {
   skill: string;
   createdTs: number;
   fleetNote?: string;
+  attachments?: JobAttachment[];
 }

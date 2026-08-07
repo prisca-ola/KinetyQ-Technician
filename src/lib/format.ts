@@ -1,5 +1,9 @@
 // Small display helpers.
 
+export function formatNaira(n: number): string {
+  return `₦${Math.round(n).toLocaleString("en-NG")}`;
+}
+
 export function timeAgo(ts: number, now: number = Date.now()): string {
   const s = Math.max(0, Math.floor((now - ts) / 1000));
   if (s < 60) return "just now";

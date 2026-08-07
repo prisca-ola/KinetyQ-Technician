@@ -59,6 +59,7 @@ export const AVAILABLE_JOBS: AvailableJob[] = [
     skill: "Electrical systems",
     createdTs: now - 12 * MIN,
     fleetNote: "Battery replaced 6 months ago, check the alternator too.",
+    attachments: [{ type: "photo", label: "Battery terminals" }],
   },
   {
     id: "job-1042",
@@ -75,6 +76,10 @@ export const AVAILABLE_JOBS: AvailableJob[] = [
     skill: "Engine diagnostics",
     createdTs: now - 18 * MIN,
     fleetNote: "Vehicle is part of an active delivery route, treat as priority.",
+    attachments: [
+      { type: "photo", label: "Engine bay" },
+      { type: "video", label: "Cold start" },
+    ],
   },
   {
     id: "job-1043",
@@ -103,6 +108,7 @@ export const AVAILABLE_JOBS: AvailableJob[] = [
     jobType: "roadside",
     skill: "Engine diagnostics",
     createdTs: now - 55 * MIN,
+    attachments: [{ type: "photo", label: "Temperature gauge" }],
   },
   {
     id: "job-1045",
@@ -172,3 +178,42 @@ export const AVAILABLE_JOBS: AvailableJob[] = [
     createdTs: now - 8 * 60 * MIN,
   },
 ];
+
+// --- Quoting (PRD F5) ---
+
+export interface QuoteTemplate {
+  label: string;
+  min: number;
+  max: number;
+  time: string;
+}
+
+// Individual technician quick-quote presets (from the marketplace baseline).
+export const QUICK_QUOTE_TEMPLATES: QuoteTemplate[] = [
+  { label: "Quick fix", min: 5000, max: 15000, time: "30 min - 1 hour" },
+  { label: "Minor repair", min: 15000, max: 35000, time: "1-2 hours" },
+  { label: "Standard service", min: 35000, max: 75000, time: "2-4 hours" },
+  { label: "Major repair", min: 75000, max: 150000, time: "Half day" },
+  { label: "Full service", min: 150000, max: 300000, time: "Full day" },
+];
+
+export const CONFIDENCE_LEVELS = ["High", "Medium", "Low"] as const;
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  skill: string;
+  available: boolean;
+}
+
+// Business provider staff, used when assigning a technician to a quote.
+export const TEAM_MEMBERS: TeamMember[] = [
+  { id: "tm1", name: "Musa Bello", skill: "Engine & diagnostics", available: true },
+  { id: "tm2", name: "Grace Eze", skill: "Electrical & AC", available: true },
+  { id: "tm3", name: "Tunde Alabi", skill: "Brakes & suspension", available: false },
+  { id: "tm4", name: "Ibrahim Sani", skill: "Transmission", available: true },
+];
+
+export function findJob(id: string | undefined): AvailableJob | undefined {
+  return AVAILABLE_JOBS.find((j) => j.id === id);
+}

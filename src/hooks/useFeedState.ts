@@ -4,16 +4,18 @@ import { loadJSON, saveJSON, STORAGE_KEYS } from "@/lib/storage";
 interface FeedState {
   dismissed: string[];
   accepted: string[];
+  quoted: string[];
 }
 
-const EMPTY: FeedState = { dismissed: [], accepted: [] };
+const EMPTY: FeedState = { dismissed: [], accepted: [], quoted: [] };
 
 // Tracks which jobs the technician has accepted or dismissed so they leave the
 // available feed (PRD F4). Persisted so the feed stays consistent across reloads.
 export function useFeedState() {
-  const [state, setState] = useState<FeedState>(() =>
-    loadJSON<FeedState>(STORAGE_KEYS.feed, EMPTY)
-  );
+  const [state, setState] = useState<FeedState>(() => {
+    const s = loadJSON<FeedState>(STORAGE_KEYS.feed, EMPTY);
+    return { ...EMPTY, ...s }; // migrate older shapes missing `quoted`
+  });
 
   const persist = useCallback((next: FeedState) => {
     setState(next);
@@ -32,12 +34,21 @@ export function useFeedState() {
     [state, persist]
   );
 
+  const quote = useCallback(
+    (id: string) =>
+      persist({ ...state, quoted: [...new Set([...state.quoted, id])] }),
+    [state, persist]
+  );
+
   const reset = useCallback(() => persist(EMPTY), [persist]);
 
   const isHidden = useCallback(
-    (id: string) => state.dismissed.includes(id) || state.accepted.includes(id),
+    (id: string) =>
+      state.dismissed.includes(id) ||
+      state.accepted.includes(id) ||
+      state.quoted.includes(id),
     [state]
   );
 
-  return { state, dismiss, accept, reset, isHidden };
+  return { state, dismiss, accept, quote, reset, isHidden };
 }

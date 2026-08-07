@@ -1,4 +1,9 @@
-import { forwardRef, type InputHTMLAttributes, type ReactNode } from "react";
+import {
+  forwardRef,
+  type InputHTMLAttributes,
+  type ReactNode,
+  type TextareaHTMLAttributes,
+} from "react";
 import { cn } from "@/lib/cn";
 
 interface FieldProps {
@@ -67,3 +72,25 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     </div>
   );
 });
+
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  invalid?: boolean;
+}
+
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  function Textarea({ className, invalid, rows = 3, ...rest }, ref) {
+    return (
+      <textarea
+        ref={ref}
+        rows={rows}
+        className={cn(
+          "w-full rounded-xl border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-neutral-400",
+          "transition-colors focus:outline-none focus:ring-2 focus:ring-brand-blue/40",
+          invalid ? "border-danger focus:ring-danger/30" : "border-line focus:border-brand-blue",
+          className
+        )}
+        {...rest}
+      />
+    );
+  }
+);

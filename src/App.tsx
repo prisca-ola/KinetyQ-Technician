@@ -4,6 +4,7 @@ import { RequireAuth } from "@/components/RequireAuth";
 import { useAuth } from "@/context/AuthContext";
 import Login from "@/pages/Login";
 import JobsFeed from "@/pages/JobsFeed";
+import JobDetail from "@/pages/JobDetail";
 import MyJobs from "@/pages/MyJobs";
 import Profile from "@/pages/Profile";
 import Join from "@/pages/onboarding/Join";
@@ -39,6 +40,7 @@ export default function App() {
         }
       >
         <Route path="/jobs" element={<JobsFeed />} />
+        <Route path="/jobs/:id" element={<JobDetail />} />
         <Route path="/my-jobs" element={<MyJobs />} />
         <Route path="/profile" element={<Profile />} />
       </Route>
